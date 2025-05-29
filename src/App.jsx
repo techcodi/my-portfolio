@@ -522,8 +522,8 @@ const App = () => {
               <div className="about-image-section">
                 <div className="profile-image-container">
                   <img
-                    src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20male%20web%20developer%20in%20his%20early%2030s%20with%20a%20friendly%20smile%2C%20wearing%20a%20casual%20professional%20outfit%2C%20neutral%20studio%20background%2C%20high%20quality%20portrait%20with%20good%20lighting%2C%20modern%20and%20approachable%20appearance&width=600&height=600&seq=11&orientation=squarish"
-                    alt="John Smith"
+                    src="/myprofile.jpeg"
+                    alt="my-profile"
                     className="profile-image"
                   />
                 </div>
