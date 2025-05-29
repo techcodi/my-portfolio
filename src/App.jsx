@@ -40,11 +40,12 @@ const App = () => {
         animation: false,
         radar: {
           indicator: [
-            { name: "React", max: 85 },
-            { name: "JavaScript", max: 80 },
-
+            { name: "React", max: 100 },
+            { name: "JavaScript", max: 100 },
+            { name: "CSS", max: 100 },
+            { name: "HTML", max: 100 },
             { name: "Responsive Design", max: 100 },
-            { name: "Performance", max: 90 },
+            { name: "Performance", max: 100 },
             { name: "Accessibility", max: 100 },
           ],
           radius: 130,
