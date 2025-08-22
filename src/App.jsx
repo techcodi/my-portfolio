@@ -43,9 +43,10 @@ const App = () => {
             { name: "React", max: 100 },
             { name: "JavaScript", max: 100 },
             { name: "CSS", max: 100 },
+            { name: "Tailwind", max: 100 },
             { name: "HTML", max: 100 },
             { name: "Responsive Design", max: 100 },
-            { name: "Performance", max: 100 },
+            { name: "Performance", max: 99 },
             { name: "Accessibility", max: 100 },
           ],
           radius: 130,
@@ -78,7 +79,7 @@ const App = () => {
             type: "radar",
             data: [
               {
-                value: [95, 90, 85, 95, 80, 85],
+                value: [95, 90, 85, 95, 80, 85, 85, 85],
                 name: "Skills",
                 areaStyle: {
                   color: darkMode
@@ -121,7 +122,7 @@ const App = () => {
 
   // Copy email to clipboard
   const copyEmail = () => {
-    navigator.clipboard.writeText("hello@johnsmith.dev");
+    navigator.clipboard.writeText("joshualokossu@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -155,8 +156,33 @@ const App = () => {
   // Project data
   const projects = [
     {
+      id: 0,
+      title: "AI Resume Builder from GitHub Repo",
+      description:
+        "A web application that generates a professional resume from a GitHub repository, showcasing your skills and projects.",
+      shortDescription: "Automated resume generation from GitHub",
+      techStack: [
+        "React.js",
+        "CSS",
+        "React Query",
+        "Supabase",
+        "React Hook Form",
+        "React-Toastify",
+        "React-icons",
+        "React-Router",
+        "OpenAI API",
+      ],
+      image: "ai dashboard.png",
+      fullDescription:
+        "This AI Resume Builder allows users to generate a professional resume by extracting information from their GitHub repositories. It features a user-friendly interface where users can input their GitHub username, and the application fetches relevant data such as repositories, contributions, and skills. The generated resume is customizable, allowing users to choose different templates and formats. The application also includes options for downloading the resume in various formats like PDF and DOCX.",
+      process:
+        "The development process involved integrating the GitHub API to fetch user data and repositories. The application uses React.js for the frontend, with CSS for styling. Key features include user authentication, data fetching from GitHub, and resume generation using OpenAI's API for content formatting. The project emphasizes user experience with a clean, responsive design and intuitive navigation. The application is built with a focus on performance and accessibility, ensuring it works seamlessly across devices.",
+      preview: "https://kodorasaas.vercel.app/",
+      duration: "3 weeks",
+    },
+    {
       id: 1,
-      title: "Modern E-commerce Website",
+      title: "Modern E-commerce Web Application",
       description:
         "A feature-rich e-commerce platform with seamless shopping experience and secure payment integration.",
       shortDescription: "Full-featured e-commerce solution",
@@ -425,7 +451,7 @@ const App = () => {
             <h2 className="section-title">My Projects</h2>
             <p className="section-subtitle">
               A selection of my recent work showcasing my skills in frontend
-              development, UI/UX design, and problem-solving.
+              development, and problem-solving.
             </p>
             <div className="projects-grid">
               {projects.map((project, index) => (
@@ -454,14 +480,17 @@ const App = () => {
                             <span key={i} className="tech-tag">
                               {tech}
                             </span>
-                            <a className="tech-tag" href={project.preview}>
-                              Live site
-                            </a>
                           </>
                         ))}
                       </div>
+                      <a className="tech-tag" href={project.preview}>
+                        Live site
+                      </a>
                     </div>
                   </div>
+                  <h5 style={{ padding: "1rem", fontSize: "1.5rem" }}>
+                    {project.title}
+                  </h5>
                 </div>
               ))}
             </div>
