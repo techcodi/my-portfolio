@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import * as echarts from "echarts";
 
 import "./App.css";
+import { ExternalLink, SquareArrowOutUpRight } from "lucide";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -134,78 +135,39 @@ const App = () => {
     document.body.style.overflow = "hidden";
   };
 
-  // Close case study
-  const closeCaseStudy = () => {
-    setShowCaseStudy(false);
-    document.body.style.overflow = "auto";
-  };
-
-  // Navigate between projects
-  const navigateProject = (direction) => {
-    if (selectedProject === null) return;
-    const totalProjects = projects.length;
-    let newIndex;
-    if (direction === "prev") {
-      newIndex = (selectedProject - 1 + totalProjects) % totalProjects;
-    } else {
-      newIndex = (selectedProject + 1) % totalProjects;
-    }
-    setSelectedProject(newIndex);
-  };
-
   // Project data
   const projects = [
     {
       id: 0,
-      title: "AI Resume Builder from GitHub Repo",
+      title: "Fintech Landing Page",
       description:
-        "A web application that generates a professional resume from a GitHub repository, showcasing your skills and projects.",
+        "A modern fintech landing page built with React.js and styled-components, featuring responsive design and interactive elements.",
       shortDescription: "Automated resume generation from GitHub",
-      techStack: [
-        "React.js",
-        "CSS",
-        "React Query",
-        "Supabase",
-        "React Hook Form",
-        "React-Toastify",
-        "React-icons",
-        "React-Router",
-        "OpenAI API",
-      ],
-      image: "ai dashboard.png",
+
+      image: "/upgrade.png",
       fullDescription:
         "This AI Resume Builder allows users to generate a professional resume by extracting information from their GitHub repositories. It features a user-friendly interface where users can input their GitHub username, and the application fetches relevant data such as repositories, contributions, and skills. The generated resume is customizable, allowing users to choose different templates and formats. The application also includes options for downloading the resume in various formats like PDF and DOCX.",
       process:
         "The development process involved integrating the GitHub API to fetch user data and repositories. The application uses React.js for the frontend, with CSS for styling. Key features include user authentication, data fetching from GitHub, and resume generation using OpenAI's API for content formatting. The project emphasizes user experience with a clean, responsive design and intuitive navigation. The application is built with a focus on performance and accessibility, ensuring it works seamlessly across devices.",
-      preview: "https://kodorasaas.vercel.app/",
+      preview: "https://upgrade-landing-page.vercel.app/",
       duration: "3 weeks",
     },
     {
       id: 1,
-      title: "Modern E-commerce Web Application",
+      title: "A Solar E-commerce Platform",
       description:
-        "A feature-rich e-commerce platform with seamless shopping experience and secure payment integration.",
+        "A comprehensive e-commerce platform for solar products, featuring product management, shopping cart, and secure checkout.",
       shortDescription: "Full-featured e-commerce solution",
-      techStack: ["React.js", "Supabase", "Vanilla CSS"],
-      duration: "2 weeks",
-      image:
-        "https://readdy.ai/api/search-image?query=Modern%20e-commerce%20website%20interface%20showcasing%20elegant%20product%20displays%20with%20minimalist%20design%2C%20shopping%20cart%20functionality%2C%20and%20seamless%20checkout%20process%2C%20professional%20product%20photography%20against%20clean%20white%20background%20with%20subtle%20shadows&width=600&height=400&seq=1&orientation=landscape",
-
-      fullDescription:
-        "This e-commerce platform provides a complete online shopping solution with features including product catalog management, shopping cart functionality, secure checkout process, and order tracking. The platform  includes features like user authentication, wishlist management, and order history. The responsive design ensures a seamless shopping experience across all devices.",
+      image: "mike-solar.png",
       process:
         "The development process focused on creating an intuitive user interface while ensuring robust functionality. Key features include advanced product filtering, real-time inventory management, and a streamlined checkout process. The project was built using React.js, with Vanilla CSS for styling and Supabse for backend. Special attention was paid to performance optimization and security implementation.",
-      preview:
-        "https://comepick-ecommerce-git-main-techcodis-projects.vercel.app/",
+      preview: "https://mike-solar.vercel.app/",
     },
     {
       id: 2,
       title: "AI Lesson Note Generator",
       description:
         "An innovative AI-powered application that generates comprehensive lesson notes from various educational inputs.",
-      shortDescription: "Smart educational content generator",
-      techStack: ["React.js"],
-      duration: "1 month",
       image:
         "https://readdy.ai/api/search-image?query=Modern%20AI%20application%20interface%20showing%20text%20generation%20and%20note-taking%20features%2C%20clean%20layout%20with%20educational%20content%20display%2C%20minimalist%20design%20with%20blue%20accent%20colors%20on%20white%20background&width=600&height=400&seq=4&orientation=landscape",
 
@@ -217,6 +179,38 @@ const App = () => {
     },
     {
       id: 3,
+      title: "Utility bills Platform",
+      description:
+        "A utility bills payment platform with user-friendly interface.",
+      shortDescription: "Interactive food ordering platform",
+      techStack: ["React"],
+      duration: "1 week",
+      image: "/paybill.png",
+      fullDescription:
+        "This pizza ordering platform offers a seamless ordering experience with interactive pizza customization, real-time price calculation, and order tracking. Users can customize their pizzas with various toppings, sizes, and crust options, while seeing a real-time preview of their creation.",
+      process:
+        "The development focused on creating an engaging user experience with real-time updates and interactive elements. The platform was built using React , ensuring smooth order processing and tracking. Special attention was given to the pizza customization interface.",
+      preview: "https://pay-bill-psi.vercel.app/",
+    },
+
+    {
+      id: 4,
+      title: "AI Mood-Base Generator",
+      description:
+        "A web app that uses AI to detect your mood from a selfie and instantly generates Spotify playlists that match how you feel. No more endless searching for the right vibe; just upload your photo, and the perfect tunes start playing!",
+      shortDescription:
+        "Ai mood detector that provide you music according to your feeling",
+      techStack: ["React"],
+      duration: "1 week",
+      image: "/aimusic.png",
+
+      fullDescription:
+        "Real-time emotion detection via Face++ API Spotify API integration to fetch mood-based playlists Smooth user experience with dynamic playlist display Dark/light mode for personalized UI Embedded Spotify player to listen within the app",
+      process: "",
+      preview: "https://ai-mood-base-playlist-generator.vercel.app/",
+    },
+    {
+      id: 5,
       title: "Pizza Ordering Platform",
       description:
         "A dynamic pizza ordering system with real-time customization and order tracking capabilities.",
@@ -231,22 +225,6 @@ const App = () => {
       process:
         "The development focused on creating an engaging user experience with real-time updates and interactive elements. The platform was built using React , ensuring smooth order processing and tracking. Special attention was given to the pizza customization interface.",
       preview: "https://order-pizza-zeta.vercel.app/",
-    },
-    {
-      id: 4,
-      title: "AI Mood-Base Generator",
-      description:
-        "A web app that uses AI to detect your mood from a selfie and instantly generates Spotify playlists that match how you feel. No more endless searching for the right vibe; just upload your photo, and the perfect tunes start playing!",
-      shortDescription:
-        "Ai mood detector that provide you music according to your feeling",
-      techStack: ["React"],
-      duration: "1 week",
-      image: "/preview-image.png",
-
-      fullDescription:
-        "Real-time emotion detection via Face++ API Spotify API integration to fetch mood-based playlists Smooth user experience with dynamic playlist display Dark/light mode for personalized UI Embedded Spotify player to listen within the app",
-      process: "",
-      preview: "https://ai-mood-base-playlist-generator.vercel.app/",
     },
   ];
 
@@ -467,34 +445,73 @@ const App = () => {
                       className="project-image"
                     />
                   </div>
-                  <div className="project-overlay">
-                    <div className="project-overlay-content">
-                      <h3 className="project-title">{project.title}</h3>
-                      <p className="project-description">
-                        {project.shortDescription}
-                      </p>
 
-                      <div className="tech-stack">
-                        {project.techStack.map((tech, i) => (
-                          <>
-                            <span key={i} className="tech-tag">
-                              {tech}
-                            </span>
-                          </>
-                        ))}
-                      </div>
-                      <a className="tech-tag" href={project.preview}>
-                        Live site
+                  <div
+                    style={{
+                      padding: "10px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "1rem",
+                    }}
+                  >
+                    <h5>{project.title}</h5>
+                    <div>
+                      <a
+                        className="preview "
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "0.5rem",
+                        }}
+                        href={project.preview}
+                      >
+                        <small
+                          style={{
+                            fontSize: "1rem",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Live site
+                        </small>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-external-link-icon lucide-external-link"
+                        >
+                          <path d="M15 3h6v6" />
+                          <path d="M10 14 21 3" />
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        </svg>
                       </a>
                     </div>
                   </div>
-                  <h5 style={{ padding: "1rem", fontSize: "1.5rem" }}>
-                    {project.title}
-                  </h5>
                 </div>
               ))}
             </div>
           </div>
+          <a
+            href="https://github.com/techcodi"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              color: "white",
+              textDecoration: "none",
+              padding: "10px 20px",
+              backgroundColor: "#2563eb",
+              width: "fit-content",
+              margin: "20px auto",
+              borderRadius: "5px",
+            }}
+          >
+            View more
+          </a>
         </section>
 
         {/* About Section */}
@@ -540,7 +557,7 @@ const App = () => {
                   ))}
                 </div>
                 <a
-                  href="Lokosu--Onaolapo--Joshua-FlowCV-Resume-20250404.pdf"
+                  href="https://drive.google.com/file/d/1kUoXsfOTUJsZPtif1XBZuSovHRuvjbPV/view?usp=sharing"
                   className="download-button"
                   style={{ padding: "10px", borderRadius: "5px" }}
                   download
@@ -552,7 +569,7 @@ const App = () => {
               <div className="about-image-section">
                 <div className="profile-image-container">
                   <img
-                    src="/myprofile.jpeg"
+                    src="/profile.jpeg"
                     alt="my-profile"
                     className="profile-image"
                   />
@@ -769,79 +786,6 @@ const App = () => {
           <i className="fas fa-arrow-up"></i>
         </button>
       </footer>
-
-      {/* Case Study Modal */}
-      {showCaseStudy && selectedProject !== null && (
-        <div className="case-study-modal">
-          <div className="modal-overlay" onClick={closeCaseStudy}></div>
-          <div className={`modal-container ${darkMode ? "dark" : "light"}`}>
-            <div className="modal-image-container">
-              <img
-                src={projects[selectedProject].image}
-                alt={projects[selectedProject].title}
-                className="modal-image"
-              />
-              <div className="modal-image-overlay">
-                <div className="modal-header">
-                  <h2 className="modal-title">
-                    {projects[selectedProject].title}
-                  </h2>
-                  <p className="modal-subtitle">
-                    {projects[selectedProject].description}
-                  </p>
-                </div>
-              </div>
-              <button
-                onClick={closeCaseStudy}
-                className="modal-close-button"
-                aria-label="Close case study"
-              >
-                <i className="fas fa-times"></i>
-              </button>
-            </div>
-            <div className="modal-content">
-              <div className="project-meta">
-                <div className={`meta-item ${darkMode ? "dark" : "light"}`}>
-                  <span className="meta-label">Duration:</span>
-                  <span className="meta-value">
-                    {projects[selectedProject].duration}
-                  </span>
-                </div>
-                <div className={`meta-item ${darkMode ? "dark" : "light"}`}>
-                  <span className="meta-label">Tech Stack:</span>
-                  <span className="meta-value">
-                    {projects[selectedProject].techStack.join(", ")}
-                  </span>
-                </div>
-              </div>
-              <h3 className="modal-section-title">Project Overview</h3>
-              <p className="modal-text">
-                {projects[selectedProject].fullDescription}
-              </p>
-              <h3 className="modal-section-title">Process & Approach</h3>
-              <p className="modal-text">{projects[selectedProject].process}</p>
-              <h3 className="modal-section-title">Project Gallery</h3>
-
-              <div className="project-navigation">
-                <button
-                  onClick={() => navigateProject("prev")}
-                  className={`nav-button ${darkMode ? "dark" : "light"}`}
-                >
-                  <i className="fas fa-arrow-left"></i>
-                  Previous Project
-                </button>
-                <button
-                  onClick={() => navigateProject("next")}
-                  className={`nav-button ${darkMode ? "dark" : "light"}`}
-                >
-                  Next Project
-                  <i className="fas fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

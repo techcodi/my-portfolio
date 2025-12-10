@@ -385,6 +385,11 @@ h6 {
   flex-wrap: wrap;
   gap: 1rem;
 }
+.preview {
+  background: none;
+  color: inherit;
+  margin-bottom: -0.3rem;
+}
 
 @media (min-width: 768px) {
   .hero-title {
@@ -452,16 +457,6 @@ h6 {
 
 .project-card:hover .project-image {
   transform: scale(1.05);
-}
-
-.project-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  opacity: 0;
-  transition: var(--transition);
-  display: flex;
-  align-items: flex-end;
 }
 
 .project-card:hover .project-overlay {
